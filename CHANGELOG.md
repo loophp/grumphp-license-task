@@ -5,10 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0](https://github.com/loophp/grumphp-licence-task/compare/0.0.1...1.0.0)
+## [1.0.1](https://github.com/loophp/grumphp-licence-task/compare/1.0.0...1.0.1)
 
 ### Commits
 
+- chore: Add missing license file. [`95ad873`](https://github.com/loophp/grumphp-licence-task/commit/95ad8738a41319c9e975376f9428491b3ce8a5b2)
+- refactor: Do not use getcwd(). [`734c4c2`](https://github.com/loophp/grumphp-licence-task/commit/734c4c263f9227a53efdf7b2a8698f24e223564b)
+
+## [1.0.0](https://github.com/loophp/grumphp-licence-task/compare/0.0.1...1.0.0) - 2021-04-21
+
+### Commits
+
+- docs: Add Changelog. [`966bbc3`](https://github.com/loophp/grumphp-licence-task/commit/966bbc35dfbfea1f54fe1473e246051c7a2267f8)
 - Initial set of files. [`b3bc011`](https://github.com/loophp/grumphp-licence-task/commit/b3bc011ac9cae517a17f3103879c03ec4071e6c0)
 
 ## 0.0.1 - 2021-04-21
