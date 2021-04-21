@@ -22,7 +22,8 @@ final class Extension implements ExtensionInterface
 
         $container
             ->register('loophp.grumphp_license_task.license_manager', LicenseManager::class)
-            ->addArgument(new Reference('loophp.grumphp_license_task.spdx_licenses'));
+            ->addArgument(new Reference('loophp.grumphp_license_task.spdx_licenses'))
+            ->addArgument(new Reference('GrumPHP\Util\Paths'));
 
         $container
             ->register('task.license', License::class)

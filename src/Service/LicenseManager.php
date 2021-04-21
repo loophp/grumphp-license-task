@@ -10,6 +10,7 @@ use Ergebnis\License\Range;
 use Ergebnis\License\Template;
 use Ergebnis\License\Year;
 use Exception;
+use GrumPHP\Util\Paths;
 use loophp\GrumphpLicenseTask\Entity\License;
 use loophp\GrumphpLicenseTask\Entity\LicenseInterface;
 
@@ -19,10 +20,13 @@ use const PATHINFO_FILENAME;
 
 final class LicenseManager implements LicenseManagerInterface
 {
+    private Paths $paths;
+
     private SpdxLicensesInterface $spdxLicenses;
 
-    public function __construct(SpdxLicensesInterface $spdxLicenses)
+    public function __construct(SpdxLicensesInterface $spdxLicenses, Paths $paths)
     {
+        $this->paths = $paths;
         $this->spdxLicenses = $spdxLicenses;
     }
 
@@ -36,10 +40,8 @@ final class LicenseManager implements LicenseManagerInterface
 
     public function getLicenseFromFile(string $filepath, string $holder, int $fromYear): LicenseInterface
     {
-        $cwd = getcwd();
-
         return new License(
-            Template::fromFile(sprintf('%s/%s', $cwd, $filepath)),
+            Template::fromFile(sprintf('%s/%s', $this->paths->getProjectDir(), $filepath)),
             Range::since(
                 Year::fromString((string) $fromYear),
                 new DateTimeZone('UTC')
