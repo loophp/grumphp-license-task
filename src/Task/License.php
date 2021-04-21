@@ -14,6 +14,7 @@ use GrumPHP\Task\Context\ContextInterface;
 use GrumPHP\Task\Context\GitPreCommitContext;
 use GrumPHP\Task\Context\RunContext;
 use GrumPHP\Task\TaskInterface;
+use GrumPHP\Util\Paths;
 use loophp\GrumphpLicenseTask\Service\LicenseManagerInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -23,9 +24,12 @@ final class License implements TaskInterface
 
     private LicenseManagerInterface $licenseManager;
 
-    public function __construct(LicenseManagerInterface $licenseManager)
+    private Paths $paths;
+
+    public function __construct(LicenseManagerInterface $licenseManager, Paths $paths)
     {
         $this->licenseManager = $licenseManager;
+        $this->paths = $paths;
     }
 
     public function canRunInContext(ContextInterface $context): bool
@@ -81,7 +85,7 @@ final class License implements TaskInterface
             );
         }
 
-        $cwd = getcwd();
+        $cwd = $this->paths->getProjectDir();
         $existing = file_get_contents(sprintf('%s/%s', $cwd, $config['output']));
 
         if (false !== $existing && (string) $license === $existing) {

@@ -12,7 +12,7 @@ use loophp\GrumphpLicenseTask\Task\License;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
-class Extension implements ExtensionInterface
+final class Extension implements ExtensionInterface
 {
     public function load(ContainerBuilder $container): void
     {
@@ -27,6 +27,7 @@ class Extension implements ExtensionInterface
         $container
             ->register('task.license', License::class)
             ->addArgument(new Reference('loophp.grumphp_license_task.license_manager'))
+            ->addArgument(new Reference('GrumPHP\Util\Paths'))
             ->addTag('grumphp.task', ['task' => 'license']);
     }
 }
