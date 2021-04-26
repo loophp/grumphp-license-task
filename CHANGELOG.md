@@ -5,10 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.2](https://github.com/loophp/grumphp-licence-task/compare/1.0.1...1.0.2)
+## [1.0.3](https://github.com/loophp/grumphp-licence-task/compare/1.0.2...1.0.3)
 
 ### Commits
 
+- Add AGPL-3.0 license. [`69fdaea`](https://github.com/loophp/grumphp-licence-task/commit/69fdaea019d189d44d294a111e3c52f42341f28d)
+
+## [1.0.2](https://github.com/loophp/grumphp-licence-task/compare/1.0.1...1.0.2) - 2021-04-21
+
+### Commits
+
+- docs: Update Changelog. [`fcf5835`](https://github.com/loophp/grumphp-licence-task/commit/fcf58352f5d87b91356136b0418d3f6596e88ca2)
 - refactor: Do not use getcwd(). [`3e8cac3`](https://github.com/loophp/grumphp-licence-task/commit/3e8cac3d4750a1bc826d9acb7718c4462f58247b)
 
 ## [1.0.1](https://github.com/loophp/grumphp-licence-task/compare/1.0.0...1.0.1) - 2021-04-21
