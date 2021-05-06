@@ -86,10 +86,15 @@ final class License implements TaskInterface
         }
 
         $cwd = $this->paths->getProjectDir();
-        $existing = file_get_contents(sprintf('%s/%s', $cwd, $config['output']));
 
-        if (false !== $existing && (string) $license === $existing) {
-            return TaskResult::createPassed($this, $context);
+        $existing = file_exists(sprintf('%s/%s', $cwd, $config['output']));
+
+        if (true === $existing) {
+            $content = file_get_contents(sprintf('%s/%s', $cwd, $config['output']));
+
+            if (false !== $content && (string) $license === $content) {
+                return TaskResult::createPassed($this, $context);
+            }
         }
 
         if (false === $existing) {
