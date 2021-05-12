@@ -60,6 +60,9 @@ taks:
 - BSD-3-Clause
 - EUPL-1.2
 - MIT
+- LGPL-2.0
+- LGPL-2.1
+- LGPL-3.0
 - ([submit an issue/pr][14] to add more)
 
 ## Contributing
