@@ -1,7 +1,12 @@
 [![Latest Stable Version][latest stable version]][1]
  [![GitHub stars][github stars]][1]
  [![Total Downloads][total downloads]][1]
+ [![GitHub Workflow Status][github workflow status]][2]
+ [![Scrutinizer code quality][code quality]][3]
+ [![Code Coverage][code coverage]][3]
  [![License][license]][1]
+ [![Donate!][donate github]][5]
+ [![Donate!][donate paypal]][6]
 
 # GrumPHP License Task
 
@@ -13,10 +18,10 @@ This task ensure that your project contains a valid license.
 
 ## Features
 
-Checks if a `LICENSE.txt` already exists.
+Make sure the `LICENSE` file exists in your project.
 
-If it already exists, it compares it. If it doesn't match, [GrumPHP][5] will
-propose to fix it for you.
+If it already exists, it make sure it is valid. If it is not valid, [GrumPHP][5]
+will propose to fix it for you.
 
 If it doesn't exist, [GrumPHP][5] will create the file.
 
@@ -36,7 +41,7 @@ grumphp:
 
 ## Usage
 
-A new task `license` will be available:
+Use the new `license` task provided by this extension:
 
 ```yaml
 taks:
@@ -63,7 +68,7 @@ taks:
 - LGPL-2.0
 - LGPL-2.1
 - LGPL-3.0
-- ([submit an issue/pr][14] to add more)
+- (_[submit an issue/pr][14] to add more_)
 
 ## Contributing
 
@@ -78,14 +83,20 @@ See [CHANGELOG.md][15] for a changelog based on [git commits][16].
 
 For more detailed changelogs, please check [the release changelogs][17].
 
+[1]: https://packagist.org/packages/loophp/grumphp-license-task
 [latest stable version]: https://img.shields.io/packagist/v/loophp/grumphp-license-task.svg?style=flat-square
 [github stars]: https://img.shields.io/github/stars/loophp/grumphp-license-task.svg?style=flat-square
 [total downloads]: https://img.shields.io/packagist/dt/loophp/grumphp-license-task.svg?style=flat-square
-[license]: https://img.shields.io/packagist/l/loophp/grumphp-license-task.svg?style=flat-square
-[1]: https://packagist.org/packages/loophp/grumphp-license-task
-[2]: https://github.com/loophp/grumphp-license-task/actions
+[github workflow status]: https://img.shields.io/github/workflow/status/loophp/grumphp-license-task/Unit%20tests?style=flat-square
+[code quality]: https://img.shields.io/scrutinizer/quality/g/loophp/grumphp-license-task/master.svg?style=flat-square
 [3]: https://scrutinizer-ci.com/g/loophp/grumphp-license-task/?branch=master
 [4]: https://shepherd.dev/github/loophp/grumphp-license-task
+[code coverage]: https://img.shields.io/scrutinizer/coverage/g/loophp/grumphp-license-task/master.svg?style=flat-square
+[license]: https://img.shields.io/packagist/l/loophp/grumphp-license-task.svg?style=flat-square
+[donate github]: https://img.shields.io/badge/Sponsor-Github-brightgreen.svg?style=flat-square
+[donate paypal]: https://img.shields.io/badge/Sponsor-Paypal-brightgreen.svg?style=flat-square
+
+[2]: https://github.com/loophp/grumphp-license-task/actions
 [5]: https://packagist.org/packages/grumphp/grumphp
 [6]: https://ec.europa.eu
 [7]: https://packagist.org/packages/ergebnis/composer-normalize
