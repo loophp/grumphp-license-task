@@ -1,8 +1,35 @@
-imports:
-    - { resource: vendor/drupol/php-conventions/config/php73/grumphp.yml }
-
-parameters:
-    extra_tasks:
+grumphp:
+    tasks:
+        composer_normalize:
+        psalm:
+            ignore_patterns:
+                - "/.github/"
+                - "/.idea/"
+                - "/build/"
+                - "/benchmarks/"
+                - "/node_modules/"
+                - "/resource/"
+                - "/spec/"
+                - "/tests/"
+                - "/var/"
+                - "/vendor/"
+        phpstan:
+            level: 8
+            ignore_patterns:
+                - "/.github/"
+                - "/.idea/"
+                - "/build/"
+                - "/benchmarks/"
+                - "/node_modules/"
+                - "/resource/"
+                - "/spec/"
+                - "/tests/"
+                - "/var/"
+                - "/vendor/"
+        phpcsfixer:
+            config: .php-cs-fixer.dist.php
+            config_contains_finder: true
+            allow_risky: true
         phpspec:
             verbose: true
         infection:

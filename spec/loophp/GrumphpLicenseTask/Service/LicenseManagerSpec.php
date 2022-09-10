@@ -10,6 +10,7 @@ use loophp\GrumphpLicenseTask\Entity\LicenseInterface;
 use loophp\GrumphpLicenseTask\Service\LicenseManager;
 use loophp\GrumphpLicenseTask\Service\SpdxLicensesInterface;
 use PhpSpec\ObjectBehavior;
+
 use function dirname;
 
 class LicenseManagerSpec extends ObjectBehavior

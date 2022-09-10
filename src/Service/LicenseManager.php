@@ -32,16 +32,22 @@ final class LicenseManager implements LicenseManagerInterface
 
     public function getAvailableLicenses(): array
     {
+        $glob = glob(__DIR__ . '/../../resource/licenses/*.txt');
+
+        if (false === $glob) {
+            return [];
+        }
+
         return array_map(
             static fn (string $filename): string => pathinfo($filename, PATHINFO_FILENAME),
-            (array) glob(__DIR__ . '/../../resource/licenses/*.txt')
+            $glob
         );
     }
 
-    public function getLicenseFromFile(string $filepath, string $holder, int $fromYear): LicenseInterface
+    public function getLicenseFromFile(string $filename, string $holder, int $fromYear): LicenseInterface
     {
         return new License(
-            Template::fromFile(sprintf('%s/%s', $this->paths->getProjectDir(), $filepath)),
+            Template::fromFile(sprintf('%s/%s', $this->paths->getProjectDir(), $filename)),
             Range::since(
                 Year::fromString((string) $fromYear),
                 new DateTimeZone('UTC')

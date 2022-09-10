@@ -1,19 +1,26 @@
 # https://help.github.com/en/categories/automating-your-workflow-with-github-actions
 
 on:
-    - pull_request
+    push:
+        paths:
+            - "**.php"
+        branches:
+            - master
+    pull_request:
+        paths:
+            - "**.php"
 
 name: "Code style"
 
 jobs:
     run:
-        name: "CI"
+        name: "Code Style"
         runs-on: ${{ matrix.operating-system }}
         strategy:
             fail-fast: false
             matrix:
                 operating-system: [ubuntu-latest]
-                php-versions: ['7.4']
+                php-versions: ["8.1"]
 
         steps:
             - name: Set git to use LF
@@ -22,9 +29,7 @@ jobs:
                   git config --global core.eol lf
 
             - name: Checkout
-              uses: actions/checkout@v2.3.4
-              with:
-                  fetch-depth: 1
+              uses: actions/checkout@v3
 
             - name: Install PHP
               uses: shivammathur/setup-php@v2
@@ -33,19 +38,8 @@ jobs:
                   extensions: gd,mbstring,pcov
                   tools: cs2pr
 
-            - name: Get Composer Cache Directory
-              id: composer-cache
-              run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-            - name: Cache dependencies
-              uses: actions/cache@v2.1.5
-              with:
-                  path: ${{ steps.composer-cache.outputs.dir }}
-                  key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
-                  restore-keys: ${{ runner.os }}-composer-
-
             - name: Install dependencies
-              run: composer install --no-progress --prefer-dist --optimize-autoloader
+              uses: ramsey/composer-install@v2
 
             - name: Run Grumphp
               run: vendor/bin/grumphp run --testsuite=cs -n
@@ -53,4 +47,4 @@ jobs:
             - name: Send feedback on Github
               if: ${{ failure() }}
               run: |
-                vendor/bin/php-cs-fixer --allow-risky=yes --config=.php_cs.php fix --dry-run --format=checkstyle | cs2pr
+                  vendor/bin/php-cs-fixer --allow-risky=yes --config=.php-cs-fixer.dist.php fix --dry-run --format=checkstyle | cs2pr

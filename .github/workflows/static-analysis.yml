@@ -1,20 +1,26 @@
 # https://help.github.com/en/categories/automating-your-workflow-with-github-actions
 
 on:
-    - pull_request
-    - push
+    push:
+        paths:
+            - "**.php"
+        branches:
+            - master
+    pull_request:
+        paths:
+            - "**.php"
 
 name: "Static analysis"
 
 jobs:
     run:
-        name: "CI"
+        name: "Static Analysis"
         runs-on: ${{ matrix.operating-system }}
         strategy:
             fail-fast: false
             matrix:
-                operating-system: [ubuntu-latest, windows-latest, macOS-latest]
-                php-versions: ['7.4']
+                operating-system: [ubuntu-latest]
+                php-versions: ["8.1"]
 
         steps:
             - name: Set git to use LF
@@ -23,30 +29,18 @@ jobs:
                   git config --global core.eol lf
 
             - name: Checkout
-              uses: actions/checkout@v2.3.4
-              with:
-                  fetch-depth: 1
+              uses: actions/checkout@v3
 
             - name: Install PHP
               uses: shivammathur/setup-php@v2
               with:
                   php-version: ${{ matrix.php-versions }}
-                  extensions: gd,mbstring,pcov,xdebug
+                  extensions: mbstring
+                  coverage: none
                   tools: cs2pr
 
-            - name: Get Composer Cache Directory
-              id: composer-cache
-              run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-            - name: Cache dependencies
-              uses: actions/cache@v2.1.5
-              with:
-                  path: ${{ steps.composer-cache.outputs.dir }}
-                  key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
-                  restore-keys: ${{ runner.os }}-composer-
-
             - name: Install dependencies
-              run: composer install --no-progress --prefer-dist --optimize-autoloader
+              uses: ramsey/composer-install@v2
 
             - name: Run Grumphp
               run: vendor/bin/grumphp run --tasks=psalm,phpstan -n
@@ -54,8 +48,8 @@ jobs:
             - name: Send feedback on Github
               if: ${{ failure() }}
               run: |
-                vendor/bin/phpstan analyse -l max --error-format=checkstyle src/ | cs2pr
-                vendor/bin/psalm --output-format=github | cs2pr
+                  vendor/bin/phpstan analyse -l max --error-format=checkstyle src/ | cs2pr
+                  vendor/bin/psalm --output-format=github | cs2pr
 
             - name: Send PSALM data
               run: vendor/bin/psalm --shepherd --stats src/
