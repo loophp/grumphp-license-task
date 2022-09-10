@@ -3,7 +3,7 @@
 [![GitHub Workflow Status][github workflow status]][2]
 [![Scrutinizer code quality][code quality]][3]
 [![Code Coverage][code coverage]][3] [![License][license]][1]
-[![Donate!][donate github]][5] [![Donate!][donate paypal]][6]
+[![Donate!][donate github]][5]
 
 # GrumPHP License Task
 
