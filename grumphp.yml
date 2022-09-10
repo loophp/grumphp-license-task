@@ -1,6 +1,25 @@
 grumphp:
+    testsuites:
+        cs:
+            tasks:
+                - composer
+                - composer_normalize
+                - yamllint
+                - jsonlint
+                - phplint
+                - phpcsfixer
+
+        static-analysis:
+            tasks:
+                - phpstan
+                - psalm
+
     tasks:
+        composer:
         composer_normalize:
+        yamllint:
+        jsonlint:
+        phplint:
         psalm:
             ignore_patterns:
                 - "/.github/"
