@@ -10,7 +10,6 @@ use Ergebnis\License\Period;
 use Ergebnis\License\Template;
 use Exception;
 
-
 final class License implements LicenseInterface
 {
     private Holder $holder;
