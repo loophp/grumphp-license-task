@@ -5,10 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.7](https://github.com/loophp/grumphp-license-task/compare/1.0.6...1.0.7)
+## [1.0.8](https://github.com/loophp/grumphp-license-task/compare/1.0.7...1.0.8)
 
 ### Commits
 
+- chore: update exported files [`83d3b6d`](https://github.com/loophp/grumphp-license-task/commit/83d3b6db306b60085596ee9b2632066db469ae6d)
+- chore: rename psalm-baseline [`60ee1d5`](https://github.com/loophp/grumphp-license-task/commit/60ee1d5554753c2acea839c1dd184a1821d225e0)
+- env: update Nix environment [`ff4a37b`](https://github.com/loophp/grumphp-license-task/commit/ff4a37b16ad13e0cb4f3fd2407b9f8da56394e02)
+
+## [1.0.7](https://github.com/loophp/grumphp-license-task/compare/1.0.6...1.0.7) - 2022-09-10
+
+### Commits
+
+- docs: Update CHANGELOG. [`4168978`](https://github.com/loophp/grumphp-license-task/commit/41689781b8c219013c731e73ad97d4df3f6e6623)
 - refactor: Summer cleanup. [`23e810f`](https://github.com/loophp/grumphp-license-task/commit/23e810f3d5d379746280e44b180eb47fce5966c7)
 - refactor: Summer cleanup. [`db61270`](https://github.com/loophp/grumphp-license-task/commit/db61270eb38d831ed28bdaf2e04ebf938ad59858)
 - refactor: Summer cleanup. [`f3cb066`](https://github.com/loophp/grumphp-license-task/commit/f3cb066ef496db8d026133a755d9a9559f82ddd0)
