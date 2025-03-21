@@ -9,6 +9,7 @@ use GrumPHP\Fixer\FixResult;
 use GrumPHP\Runner\FixableTaskResult;
 use GrumPHP\Runner\TaskResult;
 use GrumPHP\Runner\TaskResultInterface;
+use GrumPHP\Task\Config\ConfigOptionsResolver;
 use GrumPHP\Task\Config\TaskConfigInterface;
 use GrumPHP\Task\Context\ContextInterface;
 use GrumPHP\Task\Context\GitPreCommitContext;
@@ -17,6 +18,8 @@ use GrumPHP\Task\TaskInterface;
 use GrumPHP\Util\Paths;
 use loophp\GrumphpLicenseTask\Service\LicenseManagerInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
+use function sprintf;
 
 final class License implements TaskInterface
 {
@@ -42,7 +45,7 @@ final class License implements TaskInterface
         return $this->config;
     }
 
-    public static function getConfigurableOptions(): OptionsResolver
+    public static function getConfigurableOptions(): ConfigOptionsResolver
     {
         $resolver = new OptionsResolver();
 
@@ -60,7 +63,7 @@ final class License implements TaskInterface
         $resolver->addAllowedTypes('date_from', ['null', 'int']);
         $resolver->addAllowedTypes('holder', ['null', 'string']);
 
-        return $resolver;
+        return ConfigOptionsResolver::fromOptionsResolver($resolver);
     }
 
     public function run(ContextInterface $context): TaskResultInterface

@@ -15,6 +15,7 @@ use loophp\GrumphpLicenseTask\Entity\License;
 use loophp\GrumphpLicenseTask\Entity\LicenseInterface;
 
 use function in_array;
+use function sprintf;
 
 use const PATHINFO_FILENAME;
 

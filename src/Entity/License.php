@@ -36,7 +36,11 @@ final class License implements LicenseInterface
             throw new Exception('Unable to generate temporary tmp file.');
         }
 
-        $path = stream_get_meta_data($file)['uri'];
+        $path = stream_get_meta_data($file)['uri'] ?? null;
+
+        if (null === $path) {
+            throw new Exception('Unable to generate temporary tmp file.');
+        }
 
         $this->toFile($path)->save();
 

@@ -14,6 +14,11 @@ use Symfony\Component\DependencyInjection\Reference;
 
 final class Extension implements ExtensionInterface
 {
+    public function imports(): iterable
+    {
+        return [];
+    }
+
     public function load(ContainerBuilder $container): void
     {
         $container
