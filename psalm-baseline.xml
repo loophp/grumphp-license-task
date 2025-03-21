@@ -7,34 +7,22 @@
       <code><![CDATA[getTemplate]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Extension.php">
-    <InvalidArgument>
-      <code><![CDATA[new ComposerSpdxLicenses()]]></code>
-      <code><![CDATA[new Reference('GrumPHP\Util\Paths')]]></code>
-      <code><![CDATA[new Reference('GrumPHP\Util\Paths')]]></code>
-      <code><![CDATA[new Reference('loophp.grumphp_license_task.license_manager')]]></code>
-      <code><![CDATA[new Reference('loophp.grumphp_license_task.spdx_licenses')]]></code>
-    </InvalidArgument>
+  <file src="src/Service/LicenseManager.php">
     <UnusedClass>
-      <code><![CDATA[Extension]]></code>
+      <code><![CDATA[LicenseManager]]></code>
     </UnusedClass>
   </file>
-  <file src="src/Service/LicenseManager.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Service/SpdxLicenses.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
+    <UnusedClass>
+      <code><![CDATA[SpdxLicenses]]></code>
+    </UnusedClass>
   </file>
   <file src="src/Task/License.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
     <PropertyNotSetInConstructor>
       <code><![CDATA[$config]]></code>
     </PropertyNotSetInConstructor>
+    <UnusedClass>
+      <code><![CDATA[License]]></code>
+    </UnusedClass>
   </file>
 </files>

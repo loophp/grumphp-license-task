@@ -1,0 +1,23 @@
+# my-extension.yaml
+services:
+    Composer\Spdx\SpdxLicenses:
+        class: Composer\Spdx\SpdxLicenses
+
+    loophp\GrumphpLicenseTask\Service\SpdxLicenses:
+        class: loophp\GrumphpLicenseTask\Service\SpdxLicenses
+        arguments:
+            - '@Composer\Spdx\SpdxLicenses'
+
+    loophp\GrumphpLicenseTask\Service\LicenseManager:
+        class: loophp\GrumphpLicenseTask\Service\LicenseManager
+        arguments:
+            - '@loophp\GrumphpLicenseTask\Service\SpdxLicenses'
+            - '@GrumPHP\Util\Paths'
+
+    loophp\GrumphpLicenseTask\Task\License:
+        class: loophp\GrumphpLicenseTask\Task\License
+        arguments:
+            - '@loophp\GrumphpLicenseTask\Service\LicenseManager'
+            - '@GrumPHP\Util\Paths'
+        tags:
+            - { name: grumphp.task, task: license }
