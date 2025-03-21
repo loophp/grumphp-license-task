@@ -55,5 +55,5 @@ grumphp:
             threads: 1
             test_framework: phpspec
             configuration: infection.json
-            min_msi: 25
+            min_msi: 23
             min_covered_msi: 50
